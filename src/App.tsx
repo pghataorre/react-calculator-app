@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import './App.css'
 
 function App() {
   const [result, setResult] = useState('');
   const [hasResult, setHasResult] = useState(false);
 
-  const handleButtonClick = (event) => {
+  const handleButtonClick = (event: ChangeEvent<HTMLButtonElement>) => {
     if(hasResult) {
       setResult(`${event.target.value}`);
       setHasResult(!hasResult);
