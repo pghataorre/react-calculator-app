@@ -1,16 +1,19 @@
-import { ChangeEvent, useState } from 'react'
+import { useState, MouseEvent} from 'react'
 import './App.css'
 
 function App() {
   const [result, setResult] = useState('');
   const [hasResult, setHasResult] = useState(false);
 
-  const handleButtonClick = (event: ChangeEvent<HTMLButtonElement>) => {
+  const handleButtonClick = (event: MouseEvent<HTMLButtonElement>) => {
+    const value = (event.target as HTMLButtonElement).value;
+
+
     if(hasResult) {
-      setResult(`${event.target.value}`);
+      setResult(`${value}`);
       setHasResult(!hasResult);
     } else {
-      setResult(result + event.target.value);
+      setResult(result + value);
     }
   }
 
@@ -34,11 +37,11 @@ function App() {
 
         <div className="calculator-container">
           <div className="buttons-container-row">
-            <input type="text" value={result} readOnly className="result-pane"/>
+            <input type="text" value={result} readOnly className="result-pane" placeholder='0'/>
           </div>
           <div className="buttons-container-row">
             <button value="C" onClick={(handleButtonClear)}>C</button>   
-            <button value="%" onClick={((e) => handleButtonPercentage(e))}>%</button>      
+            <button value="%" onClick={handleButtonPercentage}>%</button>      
           </div>
           <div className="buttons-container-row">
             <button value="7" onClick={((e) => handleButtonClick(e))}>7</button>
