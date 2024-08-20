@@ -33,7 +33,7 @@ function App() {
 
   return (
       <div>
-        <h1>Calculator App Test</h1>
+        <h1>Calculator App</h1>
 
         <div className="calculator-container">
           <div className="buttons-container-row">
